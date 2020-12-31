@@ -1,4 +1,4 @@
-# turbo.fish
+# [turbofish.rs][turbofish.rs]
 
 A little joke website about a piece of syntax in the [Rust Programming Language][rust-lang.org].
 
@@ -8,6 +8,7 @@ since caught on in the Rust community, being used even in the [official document
 For information about what the turbofish does and when you should use it, take a look at
 [this blog post][blog-post].
 
+[turbofish.rs]: https://turbofish.rs
 [rust-lang.org]: https://www.rust-lang.org/
 [reddit thread]: https://www.reddit.com/r/rust/comments/3fimgp/why_double_colon_rather_that_dot/ctozkd0/#ctozkd0
 [docs]: https://doc.rust-lang.org/std/iter/trait.Iterator.html#method.collect
