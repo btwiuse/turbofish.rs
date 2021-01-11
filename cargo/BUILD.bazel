@@ -1,0 +1,49 @@
+"""
+@generated
+cargo-raze generated Bazel file.
+
+DO NOT EDIT! Replaced on runs of cargo-raze
+"""
+
+package(default_visibility = ["//visibility:public"])
+
+licenses([
+    "notice",  # See individual crates for specific licenses
+])
+
+# Aliased targets
+alias(
+    name = "percent_encoding",
+    actual = "//cargo/vendor/percent-encoding-2.1.0:percent_encoding",
+    tags = [
+        "cargo-raze",
+        "manual",
+    ],
+)
+
+alias(
+    name = "rand",
+    actual = "//cargo/vendor/rand-0.8.1:rand",
+    tags = [
+        "cargo-raze",
+        "manual",
+    ],
+)
+
+alias(
+    name = "rocket",
+    actual = "//cargo/vendor/rocket-0.4.6:rocket",
+    tags = [
+        "cargo-raze",
+        "manual",
+    ],
+)
+
+alias(
+    name = "rocket_contrib",
+    actual = "//cargo/vendor/rocket_contrib-0.4.6:rocket_contrib",
+    tags = [
+        "cargo-raze",
+        "manual",
+    ],
+)

@@ -1,0 +1,73 @@
+"""
+@generated
+cargo-raze crate build file.
+
+DO NOT EDIT! Replaced on runs of cargo-raze
+"""
+
+# buildifier: disable=load
+load(
+    "@io_bazel_rules_rust//rust:rust.bzl",
+    "rust_binary",
+    "rust_library",
+    "rust_test",
+)
+
+# buildifier: disable=load
+load("@bazel_skylib//lib:selects.bzl", "selects")
+
+package(default_visibility = [
+    # Public for visibility by "@raze__crate__version//" targets.
+    #
+    # Prefer access through "//cargo", which limits external
+    # visibility to explicit Cargo.toml dependencies.
+    "//visibility:public",
+])
+
+licenses([
+    "notice",  # MIT from expression "MIT OR Apache-2.0"
+])
+
+# Generated Targets
+
+rust_library(
+    name = "cookie",
+    srcs = glob(["**/*.rs"]),
+    crate_features = [
+        "aes-gcm",
+        "base64",
+        "hkdf",
+        "hmac",
+        "key-expansion",
+        "percent-encode",
+        "percent-encoding",
+        "private",
+        "rand",
+        "secure",
+        "sha2",
+        "signed",
+    ],
+    crate_root = "src/lib.rs",
+    crate_type = "lib",
+    data = [],
+    edition = "2018",
+    rustc_flags = [
+        "--cap-lints=allow",
+    ],
+    tags = [
+        "cargo-raze",
+        "manual",
+    ],
+    version = "0.11.3",
+    # buildifier: leave-alone
+    deps = [
+        "//cargo/vendor/aes-gcm-0.5.0:aes_gcm",
+        "//cargo/vendor/base64-0.12.3:base64",
+        "//cargo/vendor/hkdf-0.8.0:hkdf",
+        "//cargo/vendor/hmac-0.7.1:hmac",
+        "//cargo/vendor/percent-encoding-2.1.0:percent_encoding",
+        "//cargo/vendor/rand-0.7.3:rand",
+        "//cargo/vendor/sha2-0.8.2:sha2",
+        "//cargo/vendor/time-0.1.44:time",
+    ],
+)

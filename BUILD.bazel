@@ -1,0 +1,18 @@
+load("@io_bazel_rules_rust//rust:rust.bzl", "rust_binary")
+
+rust_binary(
+    name = "turbofish",
+    srcs = [
+        "src/main.rs",
+        "src/random.rs",
+        "src/reverse_turbofish.rs",
+        "src/turbofish.rs",
+    ],
+    visibility = ["//visibility:public"],
+    deps = [
+        "//cargo:rand",
+        "//cargo:rocket",
+        "//cargo:rocket_contrib",
+        "//cargo:percent_encoding",
+    ],
+)
