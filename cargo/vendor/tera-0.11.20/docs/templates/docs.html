@@ -1,0 +1,44 @@
+{% extends "index.html" %}
+
+{% block hero %}
+{% endblock hero %}
+
+{% block content %}
+    <div class="container">
+        <nav class="docs__sidebar">
+            <ul>
+                {% set section = get_section(path="docs/_index.md") %}
+                {% for p in section.pages %}
+                    {% set index = loop.index %}
+                    {% for h1 in p.toc %}
+                        <li>
+                            <a href="{{ h1.permalink }}">{{ h1.title }}</a>
+                            {% if h1.children %}
+                                <ul>
+                                    {% for h2 in h1.children %}
+                                        {% set index2 = loop.index %}
+                                        <li>
+                                            <a href="{{ h2.permalink }}">{{ h2.title }}</a>
+                                            {% if h2.children %}
+                                                {% if page and page != p %}<input aria-hidden="true" class="submenu-open" type="checkbox" id="docs-{{ index }}-{{ index2 }}-open"/><label aria-hidden="true" for="docs-{{ index }}-{{ index2 }}-open"></label>{% endif %}
+                                                <ul>
+                                                    {% for h3 in h2.children %}<li><a href="{{ h3.permalink }}">{{ h3.title }}</a></li>{% endfor %}
+                                                </ul>
+                                            {% endif %}
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            {% endif %}
+                        </li>
+                    {% endfor %}
+                {% endfor %}
+            </ul>
+
+        </nav>
+        <main class="docs__content">
+            {% block doc_content %}
+                {{ section.content | safe }}
+            {% endblock doc_content %}
+        </main>
+    </div>
+{% endblock content %}
