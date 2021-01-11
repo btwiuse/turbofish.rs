@@ -72,6 +72,15 @@ rust_library(
         "//cargo/vendor/unic-segment-0.7.0:unic_segment",
         "//cargo/vendor/url-1.7.2:url",
     ],
+    compile_data = [
+        ":pest",
+    ],
 )
+
+filegroup(
+    name = "pest",
+    srcs = glob(["**/*.pest"]),
+)
+
 
 # Unsupported target "render_fails" with type "test" omitted

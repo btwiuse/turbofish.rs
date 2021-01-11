@@ -53,6 +53,14 @@ rust_library(
         "//cargo/vendor/unic-char-range-0.7.0:unic_char_range",
         "//cargo/vendor/unic-ucd-version-0.7.0:unic_ucd_version",
     ],
+    compile_data = [
+        ":rsv",
+    ],
+)
+
+filegroup(
+    name = "rsv",
+    srcs = glob(["**/*.rsv"]),
 )
 
 # Unsupported target "basic_tests" with type "test" omitted

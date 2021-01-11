@@ -51,6 +51,14 @@ rust_library(
     deps = [
         "//cargo/vendor/unic-common-0.7.0:unic_common",
     ],
+    compile_data = [
+        ":rsv",
+    ],
+)
+
+filegroup(
+    name = "rsv",
+    srcs = glob(["**/*.rsv"]),
 )
 
 # Unsupported target "basic_tests" with type "test" omitted

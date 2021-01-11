@@ -50,4 +50,12 @@ rust_library(
     # buildifier: leave-alone
     deps = [
     ],
+    compile_data = [
+        ":data",
+    ],
+)
+
+filegroup(
+    name = "data",
+    srcs = glob(["**/*.txt", "**/*.bin"]),
 )
